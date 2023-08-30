@@ -167,6 +167,7 @@ INSERT INTO products (toko_jaya, toko_rima, sinar_jaya)
 VALUES (90, 91, 89), (198, 188, null), (76, null, 74);
 ```
 
+### Answer 4
 ```
 SELECT product_id, 'toko_jaya' AS store, toko_jaya AS price FROM products WHERE toko_jaya IS NOT null
 UNION
