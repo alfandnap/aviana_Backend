@@ -110,10 +110,12 @@ VALUES (ROUND(RAND() * 9 + 1, 2)),
        (ROUND(9, 2));
 ```
 ### Answer 3
+```
 SELECT score,
        DENSE_RANK() OVER (ORDER BY score DESC) AS rank
 FROM question_1
 ORDER BY score DESC;
+```
 
 
 ### Question 4
@@ -165,9 +167,11 @@ INSERT INTO products (toko_jaya, toko_rima, sinar_jaya)
 VALUES (90, 91, 89), (198, 188, null), (76, null, 74);
 ```
 
+```
 SELECT product_id, 'toko_jaya' AS store, toko_jaya AS price FROM products WHERE toko_jaya IS NOT null
 UNION
 SELECT product_id, 'toko_rima' AS store, toko_rima AS price FROM products WHERE toko_rima IS NOT null
 UNION
 SELECT product_id, 'sinar_jaya' AS store, sinar_jaya AS price FROM products WHERE sinar_jaya IS NOT null
 ORDER BY product_id  ASC;
+```
