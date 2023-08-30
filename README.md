@@ -21,12 +21,12 @@ Pastikan Anda telah membaca dengan cermat instruksi dan pertanyaan yang ada sebe
 ---
 
 ### Question 1
-Apa yang kamu ketahui mengenai Big O Notation?
+Apa yang kamu ketahui mengenai Big O Notation? Big O Notation merupakan salah satu cara untuk mengukur seberapa efficient sebuah algoritma
 terdapat 2 fungsi dalam file `question-1.js`, berapa kompleksitas waktu kedua fungsi tersebut?
 ### Answer 1
 ...
-firstSortFunction = ...
-secondSortFunction = ...
+firstSortFunction = O(n^2)
+secondSortFunction = O(n log n)
 
 ### Question 2
 Diberikan sebuah `user_list_roles` sebagai berikut:
@@ -110,7 +110,11 @@ VALUES (ROUND(RAND() * 9 + 1, 2)),
        (ROUND(9, 2));
 ```
 ### Answer 3
-...
+SELECT score,
+       DENSE_RANK() OVER (ORDER BY score DESC) AS rank
+FROM question_1
+ORDER BY score DESC;
+
 
 ### Question 4
 
@@ -160,3 +164,10 @@ CREATE TABLE products (
 INSERT INTO products (toko_jaya, toko_rima, sinar_jaya)
 VALUES (90, 91, 89), (198, 188, null), (76, null, 74);
 ```
+
+SELECT product_id, 'toko_jaya' AS store, toko_jaya AS price FROM products WHERE toko_jaya IS NOT null
+UNION
+SELECT product_id, 'toko_rima' AS store, toko_rima AS price FROM products WHERE toko_rima IS NOT null
+UNION
+SELECT product_id, 'sinar_jaya' AS store, sinar_jaya AS price FROM products WHERE sinar_jaya IS NOT null
+ORDER BY product_id  ASC;
